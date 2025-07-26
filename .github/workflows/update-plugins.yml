@@ -2,7 +2,7 @@ name: Update KiCad Plugins
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Daily at midnight
+    - cron: '0 0 15 * *'  # Monthly on the 15th at midnight
   workflow_dispatch:  # Allow manual trigger
 
 jobs:
@@ -51,8 +51,8 @@ jobs:
               *) LICENSE="MIT" ;; # Default fallback
             esac
             
-            # Find PCM zip file
-            ZIP_NAME=$(echo "$RELEASE_INFO" | jq -r '.assets[].name | select(test("pcm|kicad|plugin"; "i") and test("\\.zip$"))' | head -1)
+            # Find PCM zip file (exclude -lib variants)
+            ZIP_NAME=$(echo "$RELEASE_INFO" | jq -r '.assets[].name | select(test("pcm|kicad|plugin"; "i") and test("\\.zip$") and (test("-lib"; "i") | not))' | head -1)
             
             # If no PCM-specific zip, take the first zip
             if [ -z "$ZIP_NAME" ]; then
