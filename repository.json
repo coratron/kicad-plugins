@@ -1,0 +1,16 @@
+{
+  "$schema": "https://gitlab.com/kicad/code/kicad/-/raw/master/kicad/pcm/schemas/pcm.v1.schema.json#/definitions/Repository",
+  "maintainer": {
+    "contact": {
+      "web": "https://github.com/coratron"
+    },
+    "name": "coratron"
+  },
+  "name": "Coratron's KiCad Plugin Repository",
+  "packages": {
+    "sha256": "eb342a45c28ef491c2495b41c6b0ee7630b7d92e78985ebb2be2bd4a5f211463",
+    "update_time_utc": "2025-07-26 05:00:05",
+    "update_timestamp": 1753506005,
+    "url": "https://raw.githubusercontent.com/coratron/kicad-plugins/main/packages.json"
+  }
+}

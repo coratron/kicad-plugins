@@ -1,0 +1,43 @@
+{
+  "$schema": "https://go.kicad.org/pcm/schemas/v1",
+  "packages": [
+    {
+      "author": {
+        "contact": {
+          "github": "https://github.com/yaqwsx",
+          "twitter": "https://twitter.com/yaqwsx_cz",
+          "web": "https://honzamrazek.cz"
+        },
+        "name": "Jan Mrázek"
+      },
+      "description": "Automation for KiCAD",
+      "description_full": "KiKit is a Python library, KiCAD plugin and a CLI tool to automate several tasks in a standard KiCAD workflow like panelization, automated export, etc.",
+      "identifier": "com.github.yaqwsx.kikit",
+      "license": "MIT",
+      "maintainer": {
+        "contact": {
+          "github": "https://github.com/yaqwsx",
+          "twitter": "https://twitter.com/yaqwsx_cz",
+          "web": "https://honzamrazek.cz"
+        },
+        "name": "Jan Mrázek"
+      },
+      "name": "KiKit",
+      "resources": {
+        "homepage": "https://github.com/yaqwsx/KiKit"
+      },
+      "type": "plugin",
+      "versions": [
+        {
+          "download_sha256": "651c20e60efd6a2035279c24b142a1ef1d19eb6ffc19cf0ce8e2177fa37b1c03",
+          "download_size": 9535,
+          "download_url": "https://github.com/yaqwsx/KiKit/releases/download/v1.7.2/pcm-kikit.zip",
+          "install_size": 10488,
+          "kicad_version": "7.0",
+          "status": "stable",
+          "version": "1.7.2"
+        }
+      ]
+    }
+  ]
+}

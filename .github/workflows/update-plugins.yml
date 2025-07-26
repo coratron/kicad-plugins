@@ -1,0 +1,123 @@
+name: Update KiCad Plugins
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Update plugins to latest versions
+        run: |
+          # Generate packages.json from plugin URLs
+          echo '{"$schema": "https://go.kicad.org/pcm/schemas/v1", "packages": []}' > packages.json
+          
+          # Process each plugin URL
+          while read -r url; do
+            # Skip empty lines and comments
+            [[ -z "$url" || "$url" =~ ^# ]] && continue
+            
+            # Extract owner/repo from GitHub URL
+            REPO=$(echo "$url" | sed -E 's|https://github.com/||; s|/$||')
+            OWNER=$(echo "$REPO" | cut -d'/' -f1)
+            NAME=$(echo "$REPO" | cut -d'/' -f2)
+            
+            echo "Checking $REPO..."
+            
+            # Get latest release info
+            RELEASE_INFO=$(curl -s "https://api.github.com/repos/$REPO/releases/latest")
+            VERSION=$(echo "$RELEASE_INFO" | jq -r '.tag_name')
+            AUTHOR=$(curl -s "https://api.github.com/repos/$REPO" | jq -r '.owner.login')
+            DESCRIPTION=$(curl -s "https://api.github.com/repos/$REPO" | jq -r '.description // "No description"')
+            
+            # Find PCM zip file
+            ZIP_NAME=$(echo "$RELEASE_INFO" | jq -r '.assets[].name | select(test("pcm|kicad|plugin"; "i") and test("\\.zip$"))' | head -1)
+            
+            # If no PCM-specific zip, take the first zip
+            if [ -z "$ZIP_NAME" ]; then
+              ZIP_NAME=$(echo "$RELEASE_INFO" | jq -r '.assets[].name | select(test("\\.zip$"))' | head -1)
+            fi
+            
+            if [ -z "$ZIP_NAME" ]; then
+              echo "No zip file found for $REPO"
+              continue
+            fi
+            
+            DOWNLOAD_URL="https://github.com/$REPO/releases/download/$VERSION/$ZIP_NAME"
+            
+            # Download and calculate hash
+            if wget -q "$DOWNLOAD_URL" -O temp.zip; then
+              SHA256=$(sha256sum temp.zip | cut -d' ' -f1)
+              SIZE=$(stat -c%s temp.zip)
+              rm temp.zip
+              
+              # Create plugin entry
+              PLUGIN_ENTRY=$(jq -n \
+                --arg id "com.github.${OWNER,,}.${NAME,,}" \
+                --arg name "$NAME" \
+                --arg desc "$DESCRIPTION" \
+                --arg author "$AUTHOR" \
+                --arg homepage "$url" \
+                --arg version "${VERSION#v}" \
+                --arg dl_url "$DOWNLOAD_URL" \
+                --arg sha256 "$SHA256" \
+                --argjson size "$SIZE" \
+                '{
+                  "identifier": $id,
+                  "name": $name,
+                  "description": $desc,
+                  "description_full": $desc,
+                  "author": {"name": $author, "contact": {"github": $homepage}},
+                  "maintainer": {"name": $author, "contact": {"github": $homepage}},
+                  "license": "Unknown",
+                  "type": "plugin",
+                  "resources": {"homepage": $homepage},
+                  "versions": [{
+                    "version": $version,
+                    "status": "stable",
+                    "kicad_version": "7.0",
+                    "download_url": $dl_url,
+                    "download_sha256": $sha256,
+                    "download_size": $size,
+                    "install_size": ($size * 1.1 | floor)
+                  }]
+                }')
+              
+              # Add to packages.json
+              jq --argjson plugin "$PLUGIN_ENTRY" '.packages += [$plugin]' packages.json > packages.json.tmp && mv packages.json.tmp packages.json
+              
+              echo "Added $NAME version $VERSION"
+            else
+              echo "Failed to download $ZIP_NAME for $REPO"
+            fi
+          done < <(jq -r '.plugins[]' plugins.json)
+          
+          # Update repository.json
+          PACKAGES_SHA=$(sha256sum packages.json | cut -d' ' -f1)
+          TIMESTAMP=$(date +%s)
+          UTC_TIME=$(date -u +"%Y-%m-%d %H:%M:%S")
+          
+          jq --arg packages_sha "$PACKAGES_SHA" \
+             --arg utc_time "$UTC_TIME" \
+             --argjson timestamp "$TIMESTAMP" \
+             '.packages.sha256 = $packages_sha |
+              .packages.update_time_utc = $utc_time |
+              .packages.update_timestamp = $timestamp' repository.json > repository.json.tmp && mv repository.json.tmp repository.json
+          
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      
+      - name: Commit and push if changed
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update KiKit to $VERSION"
+            git push
+          fi
