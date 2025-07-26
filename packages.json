@@ -2,40 +2,104 @@
   "$schema": "https://go.kicad.org/pcm/schemas/v1",
   "packages": [
     {
-      "author": {
-        "contact": {
-          "github": "https://github.com/yaqwsx",
-          "twitter": "https://twitter.com/yaqwsx_cz",
-          "web": "https://honzamrazek.cz"
-        },
-        "name": "Jan Mrázek"
-      },
-      "description": "Automation for KiCAD",
-      "description_full": "KiKit is a Python library, KiCAD plugin and a CLI tool to automate several tasks in a standard KiCAD workflow like panelization, automated export, etc.",
       "identifier": "com.github.yaqwsx.kikit",
-      "license": "MIT",
-      "maintainer": {
-        "contact": {
-          "github": "https://github.com/yaqwsx",
-          "twitter": "https://twitter.com/yaqwsx_cz",
-          "web": "https://honzamrazek.cz"
-        },
-        "name": "Jan Mrázek"
-      },
       "name": "KiKit",
+      "description": "Automation tools for KiCAD",
+      "description_full": "Automation tools for KiCAD",
+      "author": {
+        "name": "yaqwsx",
+        "contact": {
+          "github": "https://github.com/yaqwsx/KiKit"
+        }
+      },
+      "maintainer": {
+        "name": "yaqwsx",
+        "contact": {
+          "github": "https://github.com/yaqwsx/KiKit"
+        }
+      },
+      "license": "Unknown",
+      "type": "plugin",
       "resources": {
         "homepage": "https://github.com/yaqwsx/KiKit"
       },
-      "type": "plugin",
       "versions": [
         {
-          "download_sha256": "651c20e60efd6a2035279c24b142a1ef1d19eb6ffc19cf0ce8e2177fa37b1c03",
-          "download_size": 9535,
-          "download_url": "https://github.com/yaqwsx/KiKit/releases/download/v1.7.2/pcm-kikit.zip",
-          "install_size": 10488,
-          "kicad_version": "7.0",
+          "version": "1.7.2",
           "status": "stable",
-          "version": "1.7.2"
+          "kicad_version": "7.0",
+          "download_url": "https://github.com/yaqwsx/KiKit/releases/download/v1.7.2/pcm-kikit-lib.zip",
+          "download_sha256": "82ff1e4ab40fe49349faf6a6e073d66bd8e64f204268f5245824116ffd753cc4",
+          "download_size": 12714,
+          "install_size": 13985
+        }
+      ]
+    },
+    {
+      "identifier": "com.github.openscopeproject.interactivehtmlbom",
+      "name": "InteractiveHtmlBom",
+      "description": "Interactive HTML BOM generation plugin for KiCad, EasyEDA, Eagle, Fusion360 and Allegro PCB designer",
+      "description_full": "Interactive HTML BOM generation plugin for KiCad, EasyEDA, Eagle, Fusion360 and Allegro PCB designer",
+      "author": {
+        "name": "openscopeproject",
+        "contact": {
+          "github": "https://github.com/openscopeproject/InteractiveHtmlBom"
+        }
+      },
+      "maintainer": {
+        "name": "openscopeproject",
+        "contact": {
+          "github": "https://github.com/openscopeproject/InteractiveHtmlBom"
+        }
+      },
+      "license": "Unknown",
+      "type": "plugin",
+      "resources": {
+        "homepage": "https://github.com/openscopeproject/InteractiveHtmlBom"
+      },
+      "versions": [
+        {
+          "version": "2.10.0",
+          "status": "stable",
+          "kicad_version": "7.0",
+          "download_url": "https://github.com/openscopeproject/InteractiveHtmlBom/releases/download/v2.10.0/InteractiveHtmlBom_v2.10.0_pcm.zip",
+          "download_sha256": "f40d509ba74bc2c879d1c39e3535f1551bb63dd4014ca28242632fb12a107c55",
+          "download_size": 150310,
+          "install_size": 165341
+        }
+      ]
+    },
+    {
+      "identifier": "com.github.bouni.kicad-jlcpcb-tools",
+      "name": "kicad-jlcpcb-tools",
+      "description": "Plugin to generate BOM + CPL files for JLCPCB, assigning LCSC part numbers directly from the plugin, query the JLCPCB parts database, lookup datasheets and much more.",
+      "description_full": "Plugin to generate BOM + CPL files for JLCPCB, assigning LCSC part numbers directly from the plugin, query the JLCPCB parts database, lookup datasheets and much more.",
+      "author": {
+        "name": "Bouni",
+        "contact": {
+          "github": "https://github.com/Bouni/kicad-jlcpcb-tools"
+        }
+      },
+      "maintainer": {
+        "name": "Bouni",
+        "contact": {
+          "github": "https://github.com/Bouni/kicad-jlcpcb-tools"
+        }
+      },
+      "license": "Unknown",
+      "type": "plugin",
+      "resources": {
+        "homepage": "https://github.com/Bouni/kicad-jlcpcb-tools"
+      },
+      "versions": [
+        {
+          "version": "2025.04.02",
+          "status": "stable",
+          "kicad_version": "7.0",
+          "download_url": "https://github.com/Bouni/kicad-jlcpcb-tools/releases/download/2025.04.02/KiCAD-PCM-2025.04.02.zip",
+          "download_sha256": "59806199e2734b00c33ae8449c4fe5931a25684ccc9ed1e449421581b984ecec",
+          "download_size": 147317,
+          "install_size": 162048
         }
       ]
     }
