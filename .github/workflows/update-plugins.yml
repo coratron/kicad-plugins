@@ -40,6 +40,17 @@ jobs:
             DESCRIPTION=$(echo "$REPO_INFO" | jq -r '.description // "No description"')
             LICENSE=$(echo "$REPO_INFO" | jq -r '.license.spdx_id // "MIT"')
             
+            # Map GitHub licenses to KiCad-compatible ones
+            case "$LICENSE" in
+              "NOASSERTION"|"") LICENSE="MIT" ;;
+              "GPL-2.0") LICENSE="GPL-2.0-only" ;;
+              "GPL-3.0") LICENSE="GPL-3.0-only" ;;
+              "LGPL-2.1") LICENSE="LGPL-2.1-only" ;;
+              "LGPL-3.0") LICENSE="LGPL-3.0-only" ;;
+              "Apache-2.0"|"MIT"|"BSD-2-Clause"|"BSD-3-Clause"|"ISC") ;; # These are valid
+              *) LICENSE="MIT" ;; # Default fallback
+            esac
+            
             # Find PCM zip file
             ZIP_NAME=$(echo "$RELEASE_INFO" | jq -r '.assets[].name | select(test("pcm|kicad|plugin"; "i") and test("\\.zip$"))' | head -1)
             
