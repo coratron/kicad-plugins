@@ -28,10 +28,10 @@
           "version": "1.7.2",
           "status": "stable",
           "kicad_version": "7.0",
-          "download_url": "https://github.com/yaqwsx/KiKit/releases/download/v1.7.2/pcm-kikit-lib.zip",
-          "download_sha256": "82ff1e4ab40fe49349faf6a6e073d66bd8e64f204268f5245824116ffd753cc4",
-          "download_size": 12714,
-          "install_size": 13985
+          "download_url": "https://github.com/yaqwsx/KiKit/releases/download/v1.7.2/pcm-kikit.zip",
+          "download_sha256": "651c20e60efd6a2035279c24b142a1ef1d19eb6ffc19cf0ce8e2177fa37b1c03",
+          "download_size": 9535,
+          "install_size": 10488
         }
       ]
     },
