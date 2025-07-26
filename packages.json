@@ -18,7 +18,7 @@
           "github": "https://github.com/yaqwsx/KiKit"
         }
       },
-      "license": "Unknown",
+      "license": "MIT",
       "type": "plugin",
       "resources": {
         "homepage": "https://github.com/yaqwsx/KiKit"
@@ -52,7 +52,7 @@
           "github": "https://github.com/openscopeproject/InteractiveHtmlBom"
         }
       },
-      "license": "Unknown",
+      "license": "MIT",
       "type": "plugin",
       "resources": {
         "homepage": "https://github.com/openscopeproject/InteractiveHtmlBom"
@@ -86,7 +86,7 @@
           "github": "https://github.com/Bouni/kicad-jlcpcb-tools"
         }
       },
-      "license": "Unknown",
+      "license": "MIT",
       "type": "plugin",
       "resources": {
         "homepage": "https://github.com/Bouni/kicad-jlcpcb-tools"

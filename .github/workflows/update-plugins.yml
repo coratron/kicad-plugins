@@ -35,8 +35,10 @@ jobs:
             # Get latest release info
             RELEASE_INFO=$(curl -s "https://api.github.com/repos/$REPO/releases/latest")
             VERSION=$(echo "$RELEASE_INFO" | jq -r '.tag_name')
-            AUTHOR=$(curl -s "https://api.github.com/repos/$REPO" | jq -r '.owner.login')
-            DESCRIPTION=$(curl -s "https://api.github.com/repos/$REPO" | jq -r '.description // "No description"')
+            REPO_INFO=$(curl -s "https://api.github.com/repos/$REPO")
+            AUTHOR=$(echo "$REPO_INFO" | jq -r '.owner.login')
+            DESCRIPTION=$(echo "$REPO_INFO" | jq -r '.description // "No description"')
+            LICENSE=$(echo "$REPO_INFO" | jq -r '.license.spdx_id // "MIT"')
             
             # Find PCM zip file
             ZIP_NAME=$(echo "$RELEASE_INFO" | jq -r '.assets[].name | select(test("pcm|kicad|plugin"; "i") and test("\\.zip$"))' | head -1)
@@ -69,6 +71,7 @@ jobs:
                 --arg version "${VERSION#v}" \
                 --arg dl_url "$DOWNLOAD_URL" \
                 --arg sha256 "$SHA256" \
+                --arg license "$LICENSE" \
                 --argjson size "$SIZE" \
                 '{
                   "identifier": $id,
@@ -77,7 +80,7 @@ jobs:
                   "description_full": $desc,
                   "author": {"name": $author, "contact": {"github": $homepage}},
                   "maintainer": {"name": $author, "contact": {"github": $homepage}},
-                  "license": "Unknown",
+                  "license": $license,
                   "type": "plugin",
                   "resources": {"homepage": $homepage},
                   "versions": [{
