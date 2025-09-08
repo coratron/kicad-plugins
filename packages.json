@@ -120,7 +120,7 @@
           "github": "https://github.com/jsreynaud/kicad-action-scripts"
         }
       },
-      "license": "GPL-3.0-only",
+      "license": "GPL",
       "type": "plugin",
       "resources": {
         "homepage": "https://github.com/jsreynaud/kicad-action-scripts"
