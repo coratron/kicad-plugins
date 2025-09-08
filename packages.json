@@ -102,6 +102,40 @@
           "install_size": 162048
         }
       ]
+    },
+    {
+      "identifier": "com.github.jsreynaud.kicad-action-scripts",
+      "name": "KiCad Action Scripts",
+      "description": "Some KiCad plugins in Python - ViaStitching and CircularZone",
+      "description_full": "KiCad Action Scripts provides two main features: ViaStitching - A pure Python via stitching plugin, and CircularZone - A script to create circular zones",
+      "author": {
+        "name": "jsreynaud",
+        "contact": {
+          "github": "https://github.com/jsreynaud/kicad-action-scripts"
+        }
+      },
+      "maintainer": {
+        "name": "jsreynaud",
+        "contact": {
+          "github": "https://github.com/jsreynaud/kicad-action-scripts"
+        }
+      },
+      "license": "GPL-3.0",
+      "type": "plugin",
+      "resources": {
+        "homepage": "https://github.com/jsreynaud/kicad-action-scripts"
+      },
+      "versions": [
+        {
+          "version": "0.5.0",
+          "status": "stable",
+          "kicad_version": "8.0",
+          "download_url": "https://github.com/jsreynaud/kicad-action-scripts/releases/download/v8.0-0.5.0/kicad-action-scripts_v8.0-0.5.0.zip",
+          "download_sha256": "79f0c0b4b0a2d99d1606a3d391139eba3b9990447a9a23f8d9c3fccab0d861c0",
+          "download_size": 51689,
+          "install_size": 56717
+        }
+      ]
     }
   ]
 }

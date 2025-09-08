@@ -2,6 +2,7 @@
   "plugins": [
     "https://github.com/yaqwsx/KiKit",
     "https://github.com/openscopeproject/InteractiveHtmlBom",
-    "https://github.com/Bouni/kicad-jlcpcb-tools"
+    "https://github.com/Bouni/kicad-jlcpcb-tools",
+    "https://github.com/jsreynaud/kicad-action-scripts"
   ]
 }
