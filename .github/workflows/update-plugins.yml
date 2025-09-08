@@ -43,10 +43,10 @@ jobs:
             # Map GitHub licenses to KiCad-compatible ones
             case "$LICENSE" in
               "NOASSERTION"|"") LICENSE="MIT" ;;
-              "GPL-2.0") LICENSE="GPL-2.0-only" ;;
-              "GPL-3.0") LICENSE="GPL-3.0-only" ;;
-              "LGPL-2.1") LICENSE="LGPL-2.1-only" ;;
-              "LGPL-3.0") LICENSE="LGPL-3.0-only" ;;
+              "GPL-2.0") LICENSE="GPL" ;;
+              "GPL-3.0") LICENSE="GPL" ;;
+              "LGPL-2.1") LICENSE="LGPL" ;;
+              "LGPL-3.0") LICENSE="LGPL" ;;
               "Apache-2.0"|"MIT"|"BSD-2-Clause"|"BSD-3-Clause"|"ISC") ;; # These are valid
               *) LICENSE="MIT" ;; # Default fallback
             esac
