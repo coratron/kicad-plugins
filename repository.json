@@ -9,8 +9,8 @@
   "name": "Coratron's KiCad Plugin Repository",
   "packages": {
     "sha256": "d2ade91e21f0d34d9753b201d40e248a6874c7dcabf7fa9b0539de3662b4e567",
-    "update_time_utc": "2025-08-15 00:33:48",
-    "update_timestamp": 1755218028,
+    "update_time_utc": "2025-09-08 13:46:09",
+    "update_timestamp": 1757339169,
     "url": "https://raw.githubusercontent.com/coratron/kicad-plugins/main/packages.json"
   }
 }
