@@ -127,13 +127,13 @@
       },
       "versions": [
         {
-          "version": "0.5.0",
+          "version": "0.6.0",
           "status": "stable",
-          "kicad_version": "8.0",
-          "download_url": "https://github.com/jsreynaud/kicad-action-scripts/releases/download/v8.0-0.5.0/kicad-action-scripts_v8.0-0.5.0.zip",
-          "download_sha256": "79f0c0b4b0a2d99d1606a3d391139eba3b9990447a9a23f8d9c3fccab0d861c0",
-          "download_size": 51689,
-          "install_size": 56857
+          "kicad_version": "9.0",
+          "download_url": "https://github.com/jsreynaud/kicad-action-scripts/releases/download/v9.0-0.6.0/kicad-action-scripts_v9.0-0.6.0.zip",
+          "download_sha256": "9b3768f085eaf0bc3ab7e96dd161f3d63580ab0057e1c572c5334d70d3158114",
+          "download_size": 51954,
+          "install_size": 57149
         }
       ]
     }
