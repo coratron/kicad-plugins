@@ -2,40 +2,6 @@
   "$schema": "https://go.kicad.org/pcm/schemas/v1",
   "packages": [
     {
-      "identifier": "com.github.yaqwsx.kikit",
-      "name": "KiKit",
-      "description": "Automation tools for KiCAD",
-      "description_full": "Automation tools for KiCAD",
-      "author": {
-        "name": "yaqwsx",
-        "contact": {
-          "github": "https://github.com/yaqwsx/KiKit"
-        }
-      },
-      "maintainer": {
-        "name": "yaqwsx",
-        "contact": {
-          "github": "https://github.com/yaqwsx/KiKit"
-        }
-      },
-      "license": "MIT",
-      "type": "plugin",
-      "resources": {
-        "homepage": "https://github.com/yaqwsx/KiKit"
-      },
-      "versions": [
-        {
-          "version": "1.7.2",
-          "status": "stable",
-          "kicad_version": "7.0",
-          "download_url": "https://github.com/yaqwsx/KiKit/releases/download/v1.7.2/pcm-kikit.zip",
-          "download_sha256": "651c20e60efd6a2035279c24b142a1ef1d19eb6ffc19cf0ce8e2177fa37b1c03",
-          "download_size": 9535,
-          "install_size": 10488
-        }
-      ]
-    },
-    {
       "identifier": "com.github.openscopeproject.interactivehtmlbom",
       "name": "InteractiveHtmlBom",
       "description": "Interactive HTML BOM generation plugin for KiCad, EasyEDA, Eagle, Fusion360 and Allegro PCB designer",
@@ -59,13 +25,13 @@
       },
       "versions": [
         {
-          "version": "2.10.0",
+          "version": "2.11.1",
           "status": "stable",
           "kicad_version": "7.0",
-          "download_url": "https://github.com/openscopeproject/InteractiveHtmlBom/releases/download/v2.10.0/InteractiveHtmlBom_v2.10.0_pcm.zip",
-          "download_sha256": "f40d509ba74bc2c879d1c39e3535f1551bb63dd4014ca28242632fb12a107c55",
-          "download_size": 150310,
-          "install_size": 165341
+          "download_url": "https://github.com/openscopeproject/InteractiveHtmlBom/releases/download/v2.11.1/InteractiveHtmlBom_v2.11.1_pcm.zip",
+          "download_sha256": "d91f558a71e09c756078748878917c01ec5f681658d30d335111e025d48c1867",
+          "download_size": 148845,
+          "install_size": 163729
         }
       ]
     },
@@ -93,13 +59,13 @@
       },
       "versions": [
         {
-          "version": "2025.09.02",
+          "version": "2026.04.02",
           "status": "stable",
           "kicad_version": "7.0",
-          "download_url": "https://github.com/Bouni/kicad-jlcpcb-tools/releases/download/2025.09.02/KiCAD-PCM-2025.09.02.zip",
-          "download_sha256": "14726dba7aaea2e27ab17d5c60f2b705b2a3690f89eb97972aac4f5e9017529a",
-          "download_size": 218156,
-          "install_size": 239971
+          "download_url": "https://github.com/Bouni/kicad-jlcpcb-tools/releases/download/2026.04.02/KiCAD-PCM-2026.04.02.zip",
+          "download_sha256": "6591ab4c4a78d346a52917c6023d6d72c447f073720e87aac7d1225c41dae420",
+          "download_size": 276905,
+          "install_size": 304595
         }
       ]
     },
