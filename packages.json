@@ -25,13 +25,13 @@
       },
       "versions": [
         {
-          "version": "2.11.1",
+          "version": "2.11.2",
           "status": "stable",
           "kicad_version": "7.0",
-          "download_url": "https://github.com/openscopeproject/InteractiveHtmlBom/releases/download/v2.11.1/InteractiveHtmlBom_v2.11.1_pcm.zip",
-          "download_sha256": "d91f558a71e09c756078748878917c01ec5f681658d30d335111e025d48c1867",
-          "download_size": 148845,
-          "install_size": 163729
+          "download_url": "https://github.com/openscopeproject/InteractiveHtmlBom/releases/download/v2.11.2/InteractiveHtmlBom_v2.11.2_pcm.zip",
+          "download_sha256": "bc82207b0753258da4779c4d650ca715a444d0d8d45a3a5d8d02b11c86295a7f",
+          "download_size": 148871,
+          "install_size": 163758
         }
       ]
     },
